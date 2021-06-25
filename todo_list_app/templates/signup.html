@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% block title %}
+TODO LIST | SignUp
+{% endblock title %}
 {% block content %}
 <div class="container pt-5">
     <div class="col-lg-5 shadow-lg mx-auto p-0 mt-4">
@@ -8,6 +11,7 @@
                 {% csrf_token %}
                 {{ form.as_p }}
                 <br>
+                <p class="text-center">Already Registered ? <i><a href="/login">LogIn</a></i></p>
                 <hr>
                 <div style="margin-left: 82%;">
                     <input class="btn btn-block btn-outline-success" type="submit" value="Submit">

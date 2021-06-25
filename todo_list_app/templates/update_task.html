@@ -1,20 +1,18 @@
 {% extends 'base.html' %}
 {% block title %}
-TODO LIST | LogIn
+TODO LIST | Update Task
 {% endblock title %}
 {% block content %}
 <div class="container pt-5">
     <div class="col-lg-5 shadow-lg mx-auto p-0 mt-5">
-        <div class="alert-info p-4"><h2><b>Login</b></h2></div>
+        <div class="alert-info p-4"><h2><b>{{task.title}}</b></h2></div>
         <div class="p-4">
-            <form action="/login/" method="POST">
+            <form action="" method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
-
-                <p class="text-center">New here ? <i><a href="/signup">SignIn</a></i></p>
                 <hr>
                 <div style="margin-left: 82%;">
-                    <input class="btn btn-block btn-outline-success" type="submit" value="LogIn">
+                    <input class="btn btn-block btn-outline-success" type="submit" value="Update">
                 </div>
             </form>
         </div>

@@ -1,4 +1,7 @@
 {% extends 'base.html' %}
+{% block title %}
+TODO LIST | Home
+{% endblock title %}
 {% block content %}
 <div class="container pt-5">
     <div class="col-lg-5 shadow-lg mx-auto p-0 mt-3">
@@ -43,7 +46,7 @@
                     {% for todo in todos %}
                     <tr>
                         <td>{{forloop.counter}}</td>
-                        <td>{{todo.title}}</td>
+                        <td><a href="{% url 'update_task' todo.id %}">{{todo.title}}</a></td>
                         <td>
                         {% if todo.status != 'P' %}
                         ✔️

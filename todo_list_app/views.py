@@ -109,3 +109,23 @@ def ChangeStatus(request, id_of_todo, update_status_mark):
     todo_to_change.status = update_status_mark
     todo_to_change.save()
     return redirect('home')
+
+
+
+def updateTask(request,id_of_todo):
+    if request.user.is_authenticated:
+        task = TODOModel.objects.get(id = id_of_todo)
+        form = TODOForm(instance=task)
+
+        if request.method == 'POST':
+            form = TODOForm(request.POST, instance=task)
+            context = {'form' : form,'task':task}
+            if form.is_valid:
+                form.save()
+                return redirect('home')
+            else:
+                return render(request,'update_task.html',context=context)
+        context = {'form' : form,'task':task}
+        return render(request,'update_task.html',context=context)
+    else:
+        return redirect('login')
